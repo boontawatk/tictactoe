@@ -18,6 +18,7 @@ const Marker = ({ num, team, teamSwitch, addTable }) => {
       //check if win or not
     }
   }, [state]);
+
   return (
     <div onClick={toggle}>
       <div className="marker border p-0">{teamIcon}</div>

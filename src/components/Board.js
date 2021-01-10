@@ -24,17 +24,17 @@ const Board = () => {
     updateTable(updatedTable);
   };
 
+  //check for winner, if there is a winner, return who's win
   const checkWin = () => {
     for (let i = 0; i < winCondition.length; i++) {
       const [a, b, c] = winCondition[i];
       if (table[a] && table[a] === table[b] && table[a] === table[c]) {
-        console.log(table[a]);
         return table[a];
       }
     }
   };
 
-  checkWin();
+  const winner = checkWin();
 
   return (
     <div>
