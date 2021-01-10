@@ -7,38 +7,38 @@ const Board = () => {
     setTeam(!team);
   };
   return (
-    <div onClick={teamSwitch}>
+    <div>
       <div className="row">
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
       </div>
       <div className="row">
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
       </div>
       <div className="row">
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
         <div className="col-sm p-0">
-          <Marker state="mark" team={team} />
+          <Marker team={team} teamSwitch={teamSwitch} />
         </div>
       </div>
     </div>
