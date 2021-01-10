@@ -2,17 +2,20 @@ import React, { useEffect, useState } from "react";
 import "./marker.css";
 // state - true,false
 
-const Marker = ({ team, teamSwitch }) => {
+const Marker = ({ num, team, teamSwitch, addTable }) => {
   const [state, setState] = useState(false);
   const [teamIcon, setTeamIcon] = useState(" ");
   const toggle = () => {
-    console.log("aaa");
     if (!state) setState(true);
   };
+  const currentTeam = team ? "X" : "O";
   useEffect(() => {
     if (state) {
+      addTable(num, currentTeam);
       teamSwitch();
-      setTeamIcon(team ? "X" : "O");
+      setTeamIcon(currentTeam);
+      //add table
+      //check if win or not
     }
   }, [state]);
   return (
