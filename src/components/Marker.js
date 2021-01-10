@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
-//state props -> marked, unmarked
+// state - true,false
 
 const Marker = (props) => {
-  return <div>Marker~{props.state}</div>;
+  const [state, setState] = useState(true);
+  const toggle = () => {
+    setState(!state);
+  };
+  console.log(state);
+  return <div onClick={toggle}>Marker~</div>;
 };
 
 export default Marker;
