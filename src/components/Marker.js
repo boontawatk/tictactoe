@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-
+import "./marker.css";
 // state - true,false
 
-const Marker = (props) => {
-  const [state, setState] = useState(true);
+const Marker = () => {
+  const [state, setState] = useState(false);
+  const teamIcon = "X";
   const toggle = () => {
-    setState(!state);
+    if (!state) setState(true);
   };
-  console.log(state);
-  return <div onClick={toggle}>Marker~</div>;
+  return (
+    <div onClick={toggle}>
+      <div className="marker border p-0">{state ? teamIcon : " "}</div>
+    </div>
+  ); // replace o with space
 };
 
 export default Marker;

@@ -4,7 +4,39 @@ import Marker from "./Marker";
 const Board = () => {
   return (
     <div>
-      <Marker state="mark" />
+      <div className="row">
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+        <div className="col-sm p-0">
+          <Marker state="mark" />
+        </div>
+      </div>
     </div>
   );
 };
