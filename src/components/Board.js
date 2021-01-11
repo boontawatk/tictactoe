@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import Marker from "./Marker";
 
-const Board = () => {
-  const [team, setTeam] = useState("false");
+const Board = ({ team, setTeam, setWinner }) => {
   const winCondition = [
     [1, 2, 3],
     [4, 5, 6],
@@ -35,6 +34,8 @@ const Board = () => {
   };
 
   const winner = checkWin();
+
+  if (winner) setWinner(winner);
 
   return (
     <div>
