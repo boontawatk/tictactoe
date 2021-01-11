@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Marker from "./Marker";
 
 const Board = ({ team, setTeam, setWinner }) => {
@@ -35,88 +35,35 @@ const Board = ({ team, setTeam, setWinner }) => {
 
   const winner = checkWin();
 
-  if (winner) setWinner(winner);
-
+  useEffect(() => {
+    if (winner) setWinner(winner);
+  }, [winner]);
+  const renderRow = (...arg) => {
+    let Row = [];
+    for (let i = 0; i < arg.length; i++) {
+      Row.push(
+        <div key={arg[i]} className="col-sm p-0">
+          <Marker
+            winner={winner}
+            num={arg[i]}
+            team={team}
+            addTable={addTable}
+            teamSwitch={teamSwitch}
+          />
+        </div>
+      );
+    }
+    return (
+      <div key={arg[0]} className="row">
+        {Row}
+      </div>
+    );
+  };
   return (
     <div>
-      <div className="row">
-        <div className="col-sm p-0">
-          <Marker
-            num="1"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="2"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="3"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm p-0">
-          <Marker
-            num="4"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="5"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="6"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-      </div>
-      <div className="row">
-        <div className="col-sm p-0">
-          <Marker
-            num="7"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="8"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-        <div className="col-sm p-0">
-          <Marker
-            num="9"
-            team={team}
-            addTable={addTable}
-            teamSwitch={teamSwitch}
-          />
-        </div>
-      </div>
+      {renderRow(1, 2, 3)}
+      {renderRow(4, 5, 6)}
+      {renderRow(7, 8, 9)}
     </div>
   );
 };

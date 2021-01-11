@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./marker.css";
 // state - true,false
 
-const Marker = ({ num, team, teamSwitch, addTable }) => {
+const Marker = ({ num, team, teamSwitch, addTable, winner }) => {
   const [state, setState] = useState(false);
   const [teamIcon, setTeamIcon] = useState(" ");
   const toggle = () => {
@@ -19,13 +19,16 @@ const Marker = ({ num, team, teamSwitch, addTable }) => {
     }
   }, [state]);
 
-  if (state) {
+  //disable marker
+  if (state || winner) {
     return (
       <div>
         <div className="marker border p-0">{teamIcon}</div>
       </div>
     );
-  } // replace o with space
+  }
+
+  //enable marker
   return (
     <div onClick={toggle}>
       <div className="marker border p-0">{teamIcon}</div>
