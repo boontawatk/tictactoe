@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Marker from "./Marker";
 
-const Board = ({ team, setTeam, setWinner }) => {
+const Board = ({ team, setTeam, setWinner, count, updateCount }) => {
   const winCondition = [
     [1, 2, 3],
     [4, 5, 6],
@@ -44,6 +44,8 @@ const Board = ({ team, setTeam, setWinner }) => {
       Row.push(
         <div key={arg[i]} className="col-sm p-0">
           <Marker
+            count={count}
+            updateCount={updateCount}
             winner={winner}
             num={arg[i]}
             team={team}
