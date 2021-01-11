@@ -19,11 +19,18 @@ const Marker = ({ num, team, teamSwitch, addTable }) => {
     }
   }, [state]);
 
+  if (state) {
+    return (
+      <div>
+        <div className="marker border p-0">{teamIcon}</div>
+      </div>
+    );
+  } // replace o with space
   return (
     <div onClick={toggle}>
       <div className="marker border p-0">{teamIcon}</div>
     </div>
-  ); // replace o with space
+  );
 };
 
 export default Marker;
