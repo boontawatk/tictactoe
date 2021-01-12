@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Board from "./Board";
 import Menu from "./Menu";
 
@@ -8,7 +8,12 @@ const App = () => {
   const [winner, setWinner] = useState(null);
   const [count, updateCount] = useState(0);
   const currentTeam = team ? "X" : "O";
-  console.log(count);
+  useEffect(() => {
+    if (count === 0) {
+      setWinner(null);
+      setTeam("false");
+    }
+  }, [count]);
   return (
     <div className="container">
       <h1>Tic Tac Toe</h1>
@@ -18,6 +23,7 @@ const App = () => {
         setWinner={setWinner}
         count={count}
         updateCount={updateCount}
+        winner={winner}
       />
       <Menu
         team={currentTeam}

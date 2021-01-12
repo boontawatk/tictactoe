@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Marker from "./Marker";
 
-const Board = ({ team, setTeam, setWinner, count, updateCount }) => {
+const Board = ({ team, setTeam, setWinner, count, updateCount, winner }) => {
   const winCondition = [
     [1, 2, 3],
     [4, 5, 6],
@@ -33,11 +33,14 @@ const Board = ({ team, setTeam, setWinner, count, updateCount }) => {
     }
   };
 
-  const winner = checkWin();
-
   useEffect(() => {
-    if (winner) setWinner(winner);
-  }, [winner]);
+    const checkWinResult = checkWin();
+    if (count === 0) return updateTable([]);
+    if (checkWinResult) {
+      setWinner(checkWinResult);
+      return;
+    }
+  }, [count]);
   const renderRow = (...arg) => {
     let Row = [];
     for (let i = 0; i < arg.length; i++) {

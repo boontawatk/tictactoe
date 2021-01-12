@@ -28,6 +28,13 @@ const Marker = ({
     }
   }, [state]);
 
+  useEffect(() => {
+    if (count === 0) {
+      setState(false);
+      setTeamIcon(" ");
+    }
+  }, [count]);
+
   //disable marker
   if (state || winner) {
     return (
