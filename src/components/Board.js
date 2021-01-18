@@ -45,7 +45,7 @@ const Board = ({ team, setTeam, setWinner, count, updateCount, winner }) => {
     let Row = [];
     for (let i = 0; i < arg.length; i++) {
       Row.push(
-        <div key={arg[i]} className="col-sm p-0">
+        <div key={arg[i]} className="col p-0">
           <Marker
             count={count}
             updateCount={updateCount}
